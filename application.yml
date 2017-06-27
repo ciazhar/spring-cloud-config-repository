@@ -1,0 +1,17 @@
+# Gunakan random port untuk semua service.
+# Tidak terlalu penting portnya berapa, soalnya akan diakses lewat discovery service
+# sehingga tidak perlu dihardcode di masing-masing pengguna service
+server:
+    port: 0
+
+spring:
+    jackson:
+        serialization:
+            indent_output: true
+
+# eureka:
+#     client:
+#         serviceUrl:
+#             defaultZone: http://localhost:10001/eureka/,http://localhost:10002/eureka/
+#     instance:
+#         instanceId: ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${random.value}}
