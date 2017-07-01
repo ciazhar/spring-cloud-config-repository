@@ -9,9 +9,23 @@ spring:
         serialization:
             indent_output: true
 
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:10001/eureka/,http://localhost:10002/eureka/
+    instance:
+        instanceId: ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+# ---
+# spring:
+#     profiles: heroku
 # eureka:
 #     client:
 #         serviceUrl:
-#             defaultZone: http://localhost:10001/eureka/,http://localhost:10002/eureka/
+#             defaultZone: https://belajar-springcloud-discovery1.herokuapp.com/eureka/,https://belajar-springcloud-discovery2.herokuapp.com/eureka/
 #     instance:
-#         instanceId: ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${random.value}}
+#         instanceId: ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${server.port}}
+#         nonSecurePort: 80
+#         securePort: 443
+#         securePortEnabled: true
+#         nonSecurePortEnabled: false
