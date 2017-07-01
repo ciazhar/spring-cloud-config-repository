@@ -2,7 +2,7 @@
 # Tidak terlalu penting portnya berapa, soalnya akan diakses lewat discovery service
 # sehingga tidak perlu dihardcode di masing-masing pengguna service
 server:
-    port: 0
+    port: ${PORT:0}
 
 spring:
     jackson:
